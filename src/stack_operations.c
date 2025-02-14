@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack_operations.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ynyamets <ynyamets@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/14 06:05:23 by ynyamets          #+#    #+#             */
+/*   Updated: 2025/02/14 06:06:24 by ynyamets         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 t_stack	*init_stack(void)
@@ -7,7 +19,7 @@ t_stack	*init_stack(void)
 	stack = (t_stack *)malloc(sizeof(t_stack));
 	if (!stack)
 	{
-		printf("Error\n");
+		write(1, "Error\n", 6);
 		exit(EXIT_FAILURE);
 	}
 	stack->top = NULL;
@@ -22,7 +34,7 @@ t_node	*create_node(int value)
 	node = (t_node *)malloc(sizeof(t_node));
 	if (!node)
 	{
-		printf("Error\n");//to do: pas besoin de free la stack ???
+		write(1, "Error\n", 6);
 		exit(EXIT_FAILURE);
 	}
 	node->value = value;
@@ -46,7 +58,7 @@ int	pop_stack(t_stack *stack)
 
 	if (!stack || !stack->top)
 	{
-		printf("Error\n");
+		write(1, "Error\n", 6);
 		exit(EXIT_FAILURE);
 	}
 	t_node *temp = stack->top;
@@ -55,18 +67,6 @@ int	pop_stack(t_stack *stack)
 	free(temp);
 	stack->size--;
 	return (value);
-}
-
-void	print_stack(t_stack *stack)
-{
-	t_node	*current;
-
-	current = stack->top;
-	while (current)
-	{
-		printf("%d\n", current->value);
-		current = current->next;
-	}
 }
 
 void	free_stack(t_stack *stack)

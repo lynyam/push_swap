@@ -10,10 +10,13 @@ TESTS_DIR = tests
 
 # Fichiers source
 SRC_FILES = main.c \
-            instruction.c \
+            circular_move.c \
+			switch_move.c \
             parsing.c \
-	    utils.c \
-	    sorting.c \
+	    	utils.c \
+	    	sorting.c \
+			optimum_sorting.c \
+			helper.c \
             stack_operations.c
 
 # Construction des chemins pour les fichiers source et objets
